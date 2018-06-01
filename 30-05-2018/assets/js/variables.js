@@ -29,7 +29,7 @@ const USER = "USER";
 const PASSWORD = "PASSWORD";
 
 // CONVERTIR STRING -> NUMBER
-var unNombre="24";
+var unNombre = "24";
 console.log(unNombre);
 console.log(typeof unNombre);
 

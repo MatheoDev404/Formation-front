@@ -28,8 +28,9 @@ let PremierTrimestre =[
             francais : 12,
             anglais : 10,
             espagnol : 9,
-            maths : 7,
-        },    },
+            maths : 7
+        }    
+    },
     { 
         prenom : "Hugo",
         nom : "LIEGEARD",
@@ -38,8 +39,8 @@ let PremierTrimestre =[
             anglais : 17,
             espagnol : 12,
             maths : 7,
-            eps : 16,     
-        },
+            eps : 16     
+        }
     },
     { 
         prenom : "Rodrigue",
@@ -50,8 +51,8 @@ let PremierTrimestre =[
             espagnol : 12,
             physique : 19,
             chimie : 4,
-            eps : 11, 
-        },
+            eps : 11 
+        }
     },
     { 
         prenom : "Fernand",
@@ -61,8 +62,8 @@ let PremierTrimestre =[
             histoire : 12,
             espagnol : 14,
             maths : 3,
-            eps : 5,
-        },
+            eps : 5
+        }
     },
     {   
         prenom : "Agnèse",
@@ -71,19 +72,31 @@ let PremierTrimestre =[
             francais : 14,
             italien : 9,
             physique : 13,
-            eps : 8,
-        },    
-    },
+            eps : 8
+        }    
+    }
 ];
 
 
+w("<ol>")
 
+let total = 0;
+let matiereEleve;
 for (let i = 0; i < PremierTrimestre.length; i++) {
-    var matiereEleve = Object.keys(PremierTrimestre[i].matieres);
+
+    matiereEleve = Object.entries(PremierTrimestre[i].matieres);
+    w("<li><strong>" + PremierTrimestre[i].prenom + " " + PremierTrimestre[i].nom + "</strong><ul>")
 
     for (let j = 0; j < matiereEleve.length; j++) {
-       var currentMatiere =  matiereEleve[j];
-       l("matiere " + i + " : " + currentMatiere);
-       l(typeof currentMatiere);
-    }
+        total = (total + matiereEleve[j][1]); 
+        w("<li> " + matiereEleve[j][0] + " : " + matiereEleve[j][1] + "</li>");
+        
+    };
+
+    let moy = ( total / matiereEleve.length);
+    w("moyenne de " + PremierTrimestre[i].prenom + " : " + moy.toFixed(2)); 
+    total = 0;
+    w("</ul></li>");
 }
+
+w("</ol>")
