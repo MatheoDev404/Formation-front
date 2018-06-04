@@ -94,9 +94,9 @@ for (let i = 0; i < PremierTrimestre.length; i++) {
     };
 
     let moy = ( total / matiereEleve.length);
-    w("moyenne de " + PremierTrimestre[i].prenom + " : " + moy.toFixed(2)); 
+    w("<li>moyenne générale : " + moy.toFixed(2) + "</li>"); 
     total = 0;
-    w("</ul></li>");
+    w("</ul></li></br>");
 }
 
 w("</ol>")
