@@ -80,22 +80,23 @@ let PremierTrimestre =[
 
 w("<ol>")
 
-let total = 0;
 let matiereEleve;
+
 for (let i = 0; i < PremierTrimestre.length; i++) {
+    
+    let total = 0;
 
     matiereEleve = Object.entries(PremierTrimestre[i].matieres);
     w("<li><strong>" + PremierTrimestre[i].prenom + " " + PremierTrimestre[i].nom + "</strong><ul>")
 
     for (let j = 0; j < matiereEleve.length; j++) {
-        total = (total + matiereEleve[j][1]); 
+        total += matiereEleve[j][1]; 
         w("<li> " + matiereEleve[j][0] + " : " + matiereEleve[j][1] + "</li>");
         
     };
 
     let moy = ( total / matiereEleve.length);
     w("<li>moyenne générale : " + moy.toFixed(2) + "</li>"); 
-    total = 0;
     w("</ul></li></br>");
 }
 
