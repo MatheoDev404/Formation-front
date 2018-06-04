@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercice 4 - FINAL</title>
+    <style>
+        .pseudoError, .ageError {
+            width: 200px;
+            height: 20px;
+            background-color: yellow;
+            color: red;
+            display: none;
+        }
+        .ageError {
+            width: 360px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Formulaire d'inscription</h1>
+    <h3 id="bienvenue"></h3>
+    <!-- Emmet : form>(input[type=text][id=$])*5 -->
+    <form method="get" action="inscription.php" id="InscriptionForm">
+        
+        <input type="text"   id="pseudo"  placeholder="Choisissez un Pseudo"><br />
+       
+        <div class="pseudoError">Ce pseudo est déjà pris.</div><br />
+       
+        <input type="text"  id="age" placeholder="Quel est votre Age ?"><br />
+       
+        <div class="ageError">Vous devez avoir au moins 18 ans pour vous inscrire.</div><br />
+       
+        <input value="thewarriormaster@gmail.com" type="email" id="email" placeholder="Quel est votre Email ?"><br /><br />
+      
+        <input value="thisismypassword" type="password" id="mdp" placeholder="****"><br /><br />
+      
+        <input type="submit" id="submit" value="M'inscrire">
+    </form>
+
+    <script src="assets/js/exercice6.js"></script>
+</body>
+</html>
