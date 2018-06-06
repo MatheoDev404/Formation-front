@@ -82,15 +82,15 @@ w = e => document.write(e);
 
 
 
-function pseudoErrorRender(){
-    pseudoError[0].style.display = "block";
-    submit.style.display = "none";
-};
+// function pseudoErrorRender(){
+//     pseudoError[0].style.display = "block";
+//     submit.style.display = "none";
+// };
 
-function ageErrorRender(){
-    ageError[0].style.display = "block";
-    submit.style.display = "none";
-};
+// function ageErrorRender(){
+//     ageError[0].style.display = "block";
+//     submit.style.display = "none";
+// };
 
 function verifPseudo(){
     for (let i = 0; i < membres.length ; i++) {
@@ -107,8 +107,6 @@ function verifPseudo(){
     return error;
 };
 
-
-
 function verifAge(){
     if (age.value < majorite) {
         ageError[0].style.display = "block";
@@ -120,8 +118,6 @@ function verifAge(){
         ageError[0].style.display = "none";
     }
 };
-
-
 
 function pseudoRender(){
     bienvenue.textContent = "";
@@ -164,9 +160,6 @@ var ageError            = document.getElementsByClassName('ageError');
 let currentUser;
 let majorite = 18;
 let error;
-
-// Verif erreurs
-
 
 // -- ETAPE 1
 
