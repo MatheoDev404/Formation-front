@@ -3,12 +3,73 @@
 <head lang="fr">
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Js</title>
+    <title>jQuery</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
 
-    <script src="assets/js/main.js"></script>
+    <!-- 01.js
+    <p>Un paragraphe en HTML</p>
+    <p id="textEnJquery"></p> -->
+    
+
+    <!-- selecteurs -->
+    <!-- Les chainage de méthodes -->
+    <!-- <p>
+        Ceci est un paragraphe</br>
+        <span>
+            dans mon paragraphe un span se profile a l'horizon
+        </span>
+    </p>
+
+    <p>
+        Serais-ce <a href="http://google.fr">un lien</a> 
+        à venire par dela les montagne
+    </p>
+
+    <div id="MonElementID">
+        <p>Je serrais bien surpris d'une telle chose</p>
+    </div>
+
+    <div class="MaClasse">
+        <p>A vrai dire : Aucunement , je l'ai <span> toujours connu ainsi</span></p>
+    </div>
+
+    <nav id="menu">
+        <h3>menu</h3>
+        <ul>
+            <li><a href="#">Accueil</a></li>
+            <li><a href="#">A propos</a></li>
+            <li><a href="#">contact</a></li>
+            <li><a href="#">fromage</a></li>
+        </ul>
+    </nav> -->
+
+    <!-- exercice1 -->
+    <!-- <form action="traitement.php" id="MonFormulaire">
+        <input type="text" required placeholder="Nom et Prénom" id="nomcomplet">
+        <input type="submit" value="Je Valide">
+    </form> -->
+
+    <!-- exercice2 -->
+    <form id="MonFormulaire" action="contact.php" method="GET">
+        <fieldset>
+            <input type="text" id="fullname" placeholder="Nom et Prénom">
+            <input type="email" id="email" placeholder="Email">
+            <input type="tel" id="tel" placeholder="Téléphone">
+            <input type="text" id="sujet" placeholder="Sujet">
+            <textarea id="message" cols="30" rows="10" placeholder="Message..."></textarea>
+            <input type="submit" value="Envoyer ma Demande">
+        </fieldset>
+    </form>
+    <!-- SCRIPTS -->
+    <!-- Intégration de jQuery avec un CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <!-- <script src="assets/js/01.js"></script> -->
+    <!-- <script src="assets/js/selecteurs.js"></script> -->
+    <!-- <script src="assets/js/chainage.js"></script> -->
+    <!-- <script src="assets/js/exercice1.js"></script> -->
+    <script src="assets/js/exercice2.js"></script>
 </body>
 </html>
