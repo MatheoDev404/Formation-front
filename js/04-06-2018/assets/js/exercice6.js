@@ -98,6 +98,7 @@ function verifPseudo(){
             pseudoError[0].style.display = "block";
             submit.style.display = "none";
             error = true;
+            break;
         }else if((membres[i].pseudo !== pseudo.value) && (age.value >= majorite)){
             submit.style.display = "block";
             pseudoError[0].style.display = "none"; 
@@ -124,15 +125,6 @@ function pseudoRender(){
     bienvenue.textContent = ( "Bonjour : " + pseudo.value );
 };
 
-function addUser(){
-    membres.push({
-        'pseudo' : pseudo.value,
-        'age' : age.value,
-        'email' : email.value,
-        'mdp' : mdp.value
-    })
-    console.log(membres);
-};
 
 function welcomeNewUser(){
     w('<h2>Merci ' + pseudo.value + " ! Tu es maintenant inscrit.</h2></ br>voici la liste des membres : <ul>");
@@ -152,6 +144,8 @@ var email               = document.getElementById('email');
 var mdp                 = document.getElementById('mdp');
 var submit              = document.getElementById('submit');
 var bienvenue           = document.getElementById('bienvenue');
+var InscriptionForm     = document.getElementById('InscriptionForm');
+
 var pseudoError         = document.getElementsByClassName('pseudoError');
 var ageError            = document.getElementsByClassName('ageError');
 
@@ -175,7 +169,18 @@ pseudo.addEventListener('change', pseudoRender);
 
 // -- Etape 4A
 
-submit.addEventListener('click', addUser);
+InscriptionForm.addEventListener('submit', function (e){
+
+    e.preventDefault();
+
+    membres.push({
+        'pseudo' : pseudo.value,
+        'age' : age.value,
+        'email' : email.value,
+        'mdp' : mdp.value
+    })
+
+});
 
 // -- Etape 4B
 
