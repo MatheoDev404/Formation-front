@@ -15,19 +15,47 @@ $(() => {
     $('#MonFormulaire').submit(function (e){
 
         e.preventDefault();
+
         var $fullname   = $('#fullname').val(),
             $email      = $('#email').val(),
             $tel        = $('#tel').val(),
-            $sujet       = $('#sujet').val(),
+            $sujet      = $('#sujet').val(),
             $message    = $('#message').val();
-        $(this).replaceWith(
-            'Récapitulatif :</ br>' +
-            '<p>Nom :</br> ' + $fullname +'</p>' +
-            '<p>Email :</br> ' + $email +'</p>' +
-            '<p>Tel :</br> ' + $tel +'</p>' +
-            '<p>Sujet :</br> ' + $sujet +'</p>' +
-            '<p>Message :</br> ' + $message +'</p>'
-        );
+
+        // $(this).replaceWith(
+        //     'Récapitulatif :</ br>' +
+        //     '<p>Nom :</br> ' + $fullname +'</p>' +
+        //     '<p>Email :</br> ' + $email +'</p>' +
+        //     '<p>Tel :</br> ' + $tel +'</p>' +
+        //     '<p>Sujet :</br> ' + $sujet +'</p>' +
+        //     '<p>Message :</br> ' + $message +'</p>'
+        // );
+
+        // notation ECMA6
+        $(this).replaceWith(`
+        Récapitulatif :</ br> 
+        <p>
+            Nom :</br>   
+            ${$fullname} 
+        </p> 
+        <p>
+            Email :</br>   
+            ${$email} 
+        </p> 
+        <p>
+            Tel :</br>   
+            ${$tel} 
+        </p> 
+        <p>
+            Sujet :</br>   
+            ${$sujet} 
+        </p> 
+        <p>
+            Message :</br>   
+            ${$message} 
+        </p>
+        `);
+
     });
     
 });
