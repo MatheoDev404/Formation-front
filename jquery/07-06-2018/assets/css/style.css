@@ -1,4 +1,6 @@
-html{
+
+/* exercice 1 */
+/* html{
     padding-top: 50px;
     max-width: 500px;
     width: 100%;
@@ -9,4 +11,23 @@ html{
     background-color: rgba(212, 209, 209, 0.575);
     border-radius:10px; 
     padding: 10px;
+} */
+
+/* exercice 2 */
+main {
+    margin-bottom: 500px;
+}
+.contact {
+    background: #EEE;
+    text-align: center;
+    padding: 40px 0;
+    margin: 40px 0;
+}
+
+.contact h1 {
+    margin: 0;	
+}
+
+.alert-contact, .alert-email {
+    display: none;
 }
