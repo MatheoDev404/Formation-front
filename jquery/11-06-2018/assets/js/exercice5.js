@@ -27,9 +27,7 @@ $(()=>{
     }
 
     $('#input').on('input',function(e){
-        
-        e.preventDefault();
-        
+    
         var keyword = $("input[name='keyword']").val();
 
         $(".context").unmark({
