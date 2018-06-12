@@ -43,7 +43,7 @@ $(()=>{
             
                 if ( searchVal != '' ) {
                     filterItems.css('display','none');
-                    $('[data-filter-item][data-filter-name*="' + searchVal + '"]').css('display','block');
+                    $('[data-filter-item][data-filter-name*="' + searchVal.toLowerCase() + '"]').css('display','block');
                 } else {
                     filterItems.css('display','block');
                 }
