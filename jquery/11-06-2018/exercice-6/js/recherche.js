@@ -23,38 +23,29 @@ $(()=>{
         .then(response => response.json())
         .then(json => {
             console.log(json);
-            // for (let i = 0; i < json.length; i++) {
+
+            for (let i = 0; i < json.length; i++) {
                 
-            //     $('.resultat').append(`
-            //     <div class="membre">
-            //         <div class="membre_informations">
-            //             <p>Nom Complet :${json[i].name}</p>
-            //             <p>Username :${json[i].username}</p>
-            //             <p>Email :${json[i].email}</p>
-            //             <p>Téléphone :${json[i].phone}</p>
-            //         </div>
-            //     </div>
-            //     `)
-            // }
+                $('.resultat').append(`
+                <div data-filter-item data-filter-name="${json[i].name.toLowerCase()} ${json[i].username.toLowerCase()} ${json[i].email.toLowerCase()} ${json[i].phone.toLowerCase()}" class="membre">
+                        <p>Nom Complet :${json[i].name}</p>
+                        <p>Nom utilisateur :${json[i].username}</p>
+                        <p>Email :${json[i].email}</p>
+                        <p>Telephone :${json[i].phone}</p>
+                </div>
+                `)
+            }
+         
 
-            $("input[name='search']").on('input', search =>{
-
-                let recherche   = $('#search').val();
-                let regexNom    = "#^[a-z]+[ \-']?[[a-z]+[ \-']?]*[a-z]+$#";
-    
-                for (let i = 0; i < json.length; i++) {
-                    if ( (recherche == json[i].name) || (recherche == json[i].username) || (recherche == json[i].email) || (recherche == json[i].phone) ) {
-                        $('.resultat').append(`
-                        <div class="membre">
-                            <div class="membre_informations">
-                                <p>Nom Complet :${json[i].name}</p>
-                                <p>Username :${json[i].username}</p>
-                                <p>Email :${json[i].email}</p>
-                                <p>Téléphone :${json[i].phone}</p>
-                            </div>
-                        </div>
-                        `)
-                    }
+            $('[data-search]').on('input', function() {
+                var searchVal = $(this).val();
+                var filterItems = $('[data-filter-item]');
+            
+                if ( searchVal != '' ) {
+                    filterItems.css('display','none');
+                    $('[data-filter-item][data-filter-name*="' + searchVal + '"]').css('display','block');
+                } else {
+                    filterItems.css('display','block');
                 }
             });
            
