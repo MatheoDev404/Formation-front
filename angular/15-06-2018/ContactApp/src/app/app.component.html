@@ -1,0 +1,47 @@
+<div class="container">
+  <header class="mb-4">
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="navbar-header">
+        <a href="#" class="navbar-brand">
+          {{title}}
+        </a>
+      </div>
+    </nav>
+  </header>
+  <div class="row">
+    <div class="col-sm-4">
+      <ul class="list-group">
+        <a *ngFor="let contact of mesContacts"
+        (click)="displayContact(contact)"
+        [class.active]="contact === contactActif"
+        class="list-group-item list-group-item-action" href="javascript:void(0)">
+        {{ contact.name }}
+        </a>
+      </ul>
+    </div>
+    <div class="col-sm-8">
+      <div class="jumbotron" *ngIf="contactActif">
+        <h1 class="display-4">
+          {{ contactActif.name }}
+        </h1>
+        <p class="lead">{{ contactActif.username }}</p>
+        <hr class="my-4">
+        <input type="text" class="form-control"
+        [(ngModel)]="contactActif.nom">
+      </div>
+      <div class="jumbotron" *ngIf="!contactActif">
+        <h1 class="display-4">
+          Bienvenue
+        </h1>
+        <p class="lead">Choisissez un contact</p>
+        <hr class="my-4">
+      </div>
+    </div>
+  </div>
+  <pre>
+    {{ mesContacts | json }}
+  </pre>
+  <footer class="text-center">
+    Copyright &copy; 2018 - Paris IV - 3
+  </footer>
+</div>
