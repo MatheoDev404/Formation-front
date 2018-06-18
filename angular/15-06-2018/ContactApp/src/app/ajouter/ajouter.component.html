@@ -1,0 +1,59 @@
+ <!-- Grace à l'identifiant "#f", je peux connaitre l'état de mon formulaire. -->
+<form #f="ngForm" novalidate
+      (ngSubmit)="submitContact()"
+      *ngIf="active">
+  <h5 class="text-center m-4">
+    Ajouter un contact
+  </h5>
+  <pre>
+    form is valid : {{f.valid}}
+    <!-- name is valid : {{name.valid}}
+    username is valid : {{username.valid}}
+    email is valid : {{email.valid}} -->
+    {{nouveauContact | json}}
+  </pre>
+  <div class="form-group">
+    <input  type="text" name="name" required 
+            placeholder="Saisissez votre nom complet ..."
+            class="form-control"
+            [class.is-invalid]="name.invalid && name.touched"
+            [class.is-valid]="name.valid"
+            [(ngModel)]="nouveauContact.name"
+            #name="ngModel"
+    >
+    <div class="invalid-feedback">
+      Vous devez saisir votre nom complet.
+    </div>
+  </div>
+  <div class="form-group">
+    <input  type="text" name="username" required 
+            placeholder="Saisissez votre pseudo ..."
+            class="form-control"
+            [class.is-invalid]="username.invalid && username.touched"
+            [class.is-valid]="username.valid"
+            [(ngModel)]="nouveauContact.username"
+            #username="ngModel"
+
+    >
+    <div class="invalid-feedback">
+      Vous devez saisir votre pseudo.
+    </div>
+  </div>
+  <div class="form-group">
+    <input  type="email" name="email" required 
+            placeholder="Saisissez votre email ..."
+            class="form-control"
+            [class.is-invalid]="email.invalid && email.touched"
+            [class.is-valid]="email.valid"
+            [(ngModel)]="nouveauContact.email"
+            #email="ngModel"
+
+    >
+    <div class="invalid-feedback">
+      Vous devez saisir votre email.
+    </div>
+  </div>
+  <button type="submit" class="btn btn-block btn-primary"
+  [disabled]="f.invalid!">Ajouter le contact</button>
+
+</form>

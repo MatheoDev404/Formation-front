@@ -1,18 +1,8 @@
 
-// POur déclarer une class comme composat de notre app, on import Component via @angular/core
-import { Component } from '@angular/core';
-
-class Contact {
-  id : number;
-  name: string;
-  username: string;
-  email: string;
-  // le "?" permet de specifier que c'est facultatif
-  address?: object;
-  phone?: number;
-  website?: string;
-  company?: object;
-}
+// Pour déclarer une class comme composat de notre app, on import Component via @angular/core
+import { Component, OnInit } from '@angular/core';
+import { Contact } from './shared/models/contact';
+import { UserApiService } from './shared/services/user/user-api.service';
 
 // @Componant est un décorateur, il va nous ermetre de definir 3 parametre essentiel a notre app...
 @Component({
@@ -27,8 +17,19 @@ class Contact {
 
 // La class contient les données du composant, mais aussi son comportement ( propriétés et methodes )
 // Dans notre context MVVM notre class correspond au viewModel.
-export class AppComponent {
+export class AppComponent implements OnInit {
 
+  constructor(private userApiService: UserApiService) {}
+
+  ngOnInit(): void{
+    this.userApiService.getUsers().subscribe(
+      contacts => {
+      console.log(contacts);
+      this.mesContacts = contacts;
+      }
+    );
+    
+  }
   // Déclaration d'une variable titre
   title = 'ContactApp';
 
@@ -76,4 +77,17 @@ export class AppComponent {
   displayContact (contactClick: Contact){
     this.contactActif = contactClick; 
   };
+
+  //Fonction qui permet de rajouter un nouveau contact dans la liste
+  ajouterContacDansListe(event: any){
+    console.log(event);
+
+    //recuperation du contact dans l'evenement
+    const leContact: Contact = event.leContact;
+
+    // Ajout du leContact dans le tableau
+    this.mesContacts.push(leContact);
+
+    console.log(this.mesContacts);
+  }
 }

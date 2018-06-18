@@ -18,28 +18,15 @@
         {{ contact.name }}
         </a>
       </ul>
+      <!-- Lorsque l'evenement unContacEstCree serrat emis, la fonction ajouter dans liste serra déclanché, elle prendra en parametre les données de notre évenement, à savoir nouveauContact -->
+      <app-ajouter (unContactEstCree)="ajouterContacDansListe($event)"></app-ajouter>
     </div>
     <div class="col-sm-8">
-      <div class="jumbotron" *ngIf="contactActif">
-        <h1 class="display-4">
-          {{ contactActif.name }}
-        </h1>
-        <p class="lead">{{ contactActif.username }}</p>
-        <hr class="my-4">
-        <input type="text" class="form-control"
-        [(ngModel)]="contactActif.nom">
-      </div>
-      <div class="jumbotron" *ngIf="!contactActif">
-        <h1 class="display-4">
-          Bienvenue
-        </h1>
-        <p class="lead">Choisissez un contact</p>
-        <hr class="my-4">
-      </div>
+      <app-profil [contact]="contactActif"></app-profil>
     </div>
   </div>
   <pre>
-    {{ mesContacts | json }}
+    <!-- {{ mesContacts | json }} -->
   </pre>
   <footer class="text-center">
     Copyright &copy; 2018 - Paris IV - 3
