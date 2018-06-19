@@ -33,7 +33,7 @@
         <ul id="done-items" class="list-unstyled">
           <li *ngFor="let task of tasks | taskFilter : true">
               {{task.name}}
-            <button type="button" class="close">
+            <button type="button" class="close" (click)="removeTask(task)">
 
               <span>&times;</span>
             </button>

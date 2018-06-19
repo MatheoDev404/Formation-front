@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Task } from './shared/models/task';
 import { TaskStorageService } from './shared/services/task-storage.service';
+import * as _ from 'lodash';
+
 
 @Component({
   selector: 'app-root',
@@ -37,6 +39,11 @@ export class AppComponent implements OnInit {
   taskIsDone(task: Task){
     // Je passe la tâche de l'utilisateur à true et je sauvegarde toutes les tâches.
     task.status = true;
+    this.taskStorageService.save(this.tasks);
+  }
+  
+  removeTask(task: Task) {
+    _.pullAllWith(this.tasks, [task], _.isEqual);
     this.taskStorageService.save(this.tasks);
   }
 }
