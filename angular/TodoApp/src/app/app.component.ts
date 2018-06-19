@@ -19,4 +19,12 @@ export class AppComponent {
     //On ajoute ma nouvelle tâche dans le tableau de tâches
     this.tasks.push(task);
   }
+
+
+    // L'utilisateur viens de terminer une tâche.
+    // @param {Task} task
+  taskIsDone(task: Task){
+    // Je passe la tâche de l'utilisateur à true
+    task.status = true;
+  }
 }

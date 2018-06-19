@@ -16,7 +16,12 @@
           <li class="ui-state-default"
               *ngFor="let task of tasks"
           >
-            {{task.name}}
+          <div class="checkbox">
+            <label>
+              <input  type="checkbox" (click)="taskIsDone(task)">
+              {{task.name}}
+            </label>
+          </div>
           </li>
         </ul>
       </div>
@@ -30,3 +35,6 @@
     </div>
   </div>
 </div>
+<pre>
+  {{tasks | json}}
+</pre>
