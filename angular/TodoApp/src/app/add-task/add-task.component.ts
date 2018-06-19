@@ -28,9 +28,7 @@ export class AddTaskComponent implements OnInit {
   // Cette fonction est appellée lors de la création d'une tâche.
   addTask(){
     // Lorsque l'utilisateru soumet sa tâche, j'émets l'évenement avec la nouvelle tâche.
-    this.newTaskEvent.emit({
-      task: this.task
-    });
+    this.newTaskEvent.emit(this.task);
     this.task = new Task();
     this.active = false;
     

@@ -12,6 +12,13 @@
         <!-- tâches à faire -->
         <h1>A faire</h1>
         <hr>
+        <ul id="sortable" class="list-unstyled">
+          <li class="ui-state-default"
+              *ngFor="let task of tasks"
+          >
+            {{task.name}}
+          </li>
+        </ul>
       </div>
     </div>
     <div class="col todo-right">
