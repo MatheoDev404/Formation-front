@@ -14,7 +14,7 @@
         <hr>
         <ul id="sortable" class="list-unstyled">
           <li class="ui-state-default"
-              *ngFor="let task of tasks"
+              *ngFor="let task of tasks | taskFilter : false"
           >
           <div class="checkbox">
             <label>
@@ -28,9 +28,17 @@
     </div>
     <div class="col todo-right">
       <div class="todolist">
-
         <!-- tâches finies -->
         <h1>Terminées</h1>
+        <ul id="done-items" class="list-unstyled">
+          <li *ngFor="let task of tasks | taskFilter : true">
+              {{task.name}}
+            <button type="button" class="close">
+
+              <span>&times;</span>
+            </button>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
